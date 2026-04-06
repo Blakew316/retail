@@ -1,0 +1,283 @@
+/* =========================================
+   WILD CAST OUTFITTERS - Product Data
+   ========================================= */
+
+const PRODUCTS = [
+  // --- Fishing Lures ---
+  {
+    id: 1,
+    name: "Thunderstrike Crankbait",
+    category: "lures",
+    price: 12.99,
+    comparePrice: 16.99,
+    badge: "sale",
+    rating: 4.8,
+    reviews: 124,
+    icon: "\uD83C\uDFA3",
+    description: "Deep-diving crankbait with a tight wobble action. Irresistible to largemouth and smallmouth bass in 8-14ft depths.",
+    features: ["Dives 8-14ft", "Tight wobble action", "Premium treble hooks", "Lifelike finish"],
+    colors: ["Firetiger", "Crawdad", "Shad", "Chartreuse"],
+    weight: "0.5 oz"
+  },
+  {
+    id: 2,
+    name: "Ghost Minnow Jerkbait",
+    category: "lures",
+    price: 14.99,
+    badge: "hot",
+    rating: 4.9,
+    reviews: 89,
+    icon: "\uD83C\uDFA3",
+    description: "Suspending jerkbait that mimics a dying shad. Perfect for cold water conditions when fish are sluggish.",
+    features: ["Suspending action", "Internal rattle", "VMC hooks", "Flash foil finish"],
+    colors: ["Ghost Shad", "Clear", "Blue Chrome", "Morning Dawn"],
+    weight: "0.4 oz"
+  },
+  {
+    id: 3,
+    name: "Buzztail Spinnerbait",
+    category: "lures",
+    price: 9.99,
+    rating: 4.7,
+    reviews: 56,
+    icon: "\uD83C\uDFA3",
+    description: "Double willow blade spinnerbait that creates maximum flash and vibration. Tournament proven.",
+    features: ["Double willow blades", "Silicone skirt", "Stainless wire frame", "3/8 oz head"],
+    colors: ["White/Chartreuse", "Black/Blue", "Firetiger", "Sexy Shad"],
+    weight: "3/8 oz"
+  },
+  {
+    id: 4,
+    name: "Wicked Worm Soft Plastic 12pk",
+    category: "lures",
+    price: 7.99,
+    badge: "new",
+    rating: 4.6,
+    reviews: 203,
+    icon: "\uD83C\uDFA3",
+    description: "Ribbed soft plastic worm with salt-infused formula. Fish hold on longer for better hookup ratios.",
+    features: ["Salt-infused", "Ribbed body", "12 per pack", "Garlic scent"],
+    colors: ["Green Pumpkin", "Junebug", "Watermelon Red", "Black Blue"],
+    weight: "Pack of 12"
+  },
+  {
+    id: 5,
+    name: "Frog King Topwater",
+    category: "lures",
+    price: 11.99,
+    rating: 4.8,
+    reviews: 167,
+    icon: "\uD83D\uDC38",
+    description: "Hollow-body topwater frog that walks effortlessly over lily pads and heavy cover. Explosive strikes guaranteed.",
+    features: ["Weedless design", "Soft hollow body", "Premium double hook", "Walk-the-dog action"],
+    colors: ["Bull Frog", "Leopard", "White", "Black"],
+    weight: "5/8 oz"
+  },
+  {
+    id: 6,
+    name: "Deep Diver Swimbait",
+    category: "lures",
+    price: 18.99,
+    comparePrice: 24.99,
+    badge: "sale",
+    rating: 4.9,
+    reviews: 78,
+    icon: "\uD83C\uDFA3",
+    description: "Multi-jointed swimbait with an incredibly lifelike swimming action. The ultimate big bass lure.",
+    features: ["3-piece jointed body", "Slow sinking", "7 inch length", "Realistic 3D eyes"],
+    colors: ["Rainbow Trout", "Bluegill", "Baby Bass", "Golden Shiner"],
+    weight: "1.8 oz"
+  },
+  // --- Reels ---
+  {
+    id: 7,
+    name: "Apex Pro 3000 Spinning Reel",
+    category: "reels",
+    price: 149.99,
+    comparePrice: 189.99,
+    badge: "sale",
+    rating: 4.9,
+    reviews: 312,
+    icon: "\u2699\uFE0F",
+    description: "Premium spinning reel with 10+1 bearings, carbon fiber drag, and machined aluminum spool. Built for serious anglers.",
+    features: ["10+1 ball bearings", "Carbon fiber drag (22lb)", "Machined aluminum spool", "Anti-reverse clutch"],
+    sizes: ["2500", "3000", "4000"],
+    weight: "8.8 oz"
+  },
+  {
+    id: 8,
+    name: "Titan Baitcaster Elite",
+    category: "reels",
+    price: 199.99,
+    badge: "hot",
+    rating: 4.8,
+    reviews: 198,
+    icon: "\u2699\uFE0F",
+    description: "Low-profile baitcasting reel with magnetic braking system and 7.3:1 gear ratio. Lightning fast retrieves.",
+    features: ["7.3:1 gear ratio", "Magnetic brake system", "9+1 bearings", "Carbon fiber handle"],
+    sizes: ["Right Hand", "Left Hand"],
+    weight: "6.7 oz"
+  },
+  {
+    id: 9,
+    name: "StreamCraft Fly Reel",
+    category: "reels",
+    price: 129.99,
+    badge: "new",
+    rating: 4.7,
+    reviews: 87,
+    icon: "\u2699\uFE0F",
+    description: "Large arbor fly reel with sealed carbon disc drag. Smooth as butter for trout and salmon.",
+    features: ["Large arbor design", "Sealed drag system", "CNC machined", "Quick-change spool"],
+    sizes: ["3/4 wt", "5/6 wt", "7/8 wt"],
+    weight: "4.2 oz"
+  },
+  {
+    id: 10,
+    name: "Coastal 5000 Surf Reel",
+    category: "reels",
+    price: 89.99,
+    rating: 4.6,
+    reviews: 145,
+    icon: "\u2699\uFE0F",
+    description: "Heavy-duty saltwater spinning reel with corrosion-resistant construction. Ready for the coast.",
+    features: ["Saltwater rated", "6+1 bearings", "30lb drag", "Line capacity: 300yds/20lb"],
+    sizes: ["5000", "6000"],
+    weight: "14.2 oz"
+  },
+  // --- Hunting Gear ---
+  {
+    id: 11,
+    name: "Precision 10x42 Binoculars",
+    category: "hunting",
+    price: 249.99,
+    comparePrice: 299.99,
+    badge: "sale",
+    rating: 4.9,
+    reviews: 234,
+    icon: "\uD83D\uDD2D",
+    description: "ED glass binoculars with phase-corrected prisms. Crystal clear optics for spotting game at extreme distances.",
+    features: ["ED glass lenses", "Phase-corrected BAK4 prisms", "Waterproof & fogproof", "Twist-up eyecups"],
+    weight: "22 oz"
+  },
+  {
+    id: 12,
+    name: "Ghost Caller Pro - Deer",
+    category: "hunting",
+    price: 79.99,
+    badge: "hot",
+    rating: 4.7,
+    reviews: 156,
+    icon: "\uD83E\uDD8C",
+    description: "Electronic deer call with 24 pre-loaded sounds. Remote-activated up to 150 yards. Season-proven effectiveness.",
+    features: ["24 realistic sounds", "150yd remote range", "Weather resistant", "Built-in speaker"],
+    weight: "1.2 lbs"
+  },
+  {
+    id: 13,
+    name: "Timber Blind Ground Blind",
+    category: "hunting",
+    price: 189.99,
+    badge: "new",
+    rating: 4.6,
+    reviews: 98,
+    icon: "\u26FA",
+    description: "Hub-style ground blind with 270-degree viewing. Silent windows and blackout interior for ultimate concealment.",
+    features: ["270-degree view", "Blackout interior", "Silent Velcro windows", "Fits 2 hunters"],
+    weight: "18 lbs"
+  },
+  {
+    id: 14,
+    name: "TrueShot Rangefinder",
+    category: "hunting",
+    price: 169.99,
+    rating: 4.8,
+    reviews: 211,
+    icon: "\uD83C\uDFAF",
+    description: "Laser rangefinder with angle compensation and 1000-yard range. Pin-point accuracy for ethical shots.",
+    features: ["1000yd range", "Angle compensation", "6x magnification", "Scan mode"],
+    weight: "7.5 oz"
+  },
+  {
+    id: 15,
+    name: "CamoTec Insulated Jacket",
+    category: "hunting",
+    price: 139.99,
+    comparePrice: 179.99,
+    badge: "sale",
+    rating: 4.7,
+    reviews: 189,
+    icon: "\uD83E\uDDE5",
+    description: "Insulated hunting jacket with Realtree Edge camo. Quiet fleece exterior and scent-control technology.",
+    features: ["Realtree Edge camo", "Scent control", "Quiet fleece", "Waterproof membrane"],
+    sizes: ["S", "M", "L", "XL", "2XL"],
+    weight: "2.4 lbs"
+  },
+  {
+    id: 16,
+    name: "Trail Master Game Camera",
+    category: "hunting",
+    price: 119.99,
+    rating: 4.8,
+    reviews: 276,
+    icon: "\uD83D\uDCF7",
+    description: "32MP trail camera with 0.2s trigger speed and invisible IR flash. Monitor your land 24/7.",
+    features: ["32MP resolution", "0.2s trigger speed", "Invisible IR flash", "WiFi enabled"],
+    weight: "12 oz"
+  },
+  // --- Rods ---
+  {
+    id: 17,
+    name: "ProCast 7' Medium Heavy Rod",
+    category: "rods",
+    price: 79.99,
+    rating: 4.7,
+    reviews: 156,
+    icon: "\uD83C\uDFA3",
+    description: "High-modulus graphite casting rod with split-grip cork handle. Sensitivity you can feel to your fingertips.",
+    features: ["IM8 graphite blank", "Fuji guides", "Split-grip cork", "Medium Heavy power"],
+    weight: "4.8 oz"
+  },
+  {
+    id: 18,
+    name: "UltraLite Spinning Rod",
+    category: "rods",
+    price: 59.99,
+    badge: "new",
+    rating: 4.6,
+    reviews: 88,
+    icon: "\uD83C\uDFA3",
+    description: "Ultra-light spinning rod perfect for panfish, trout, and light tackle applications.",
+    features: ["Ultra-light power", "6'6\" length", "Stainless guides", "EVA grip"],
+    weight: "3.2 oz"
+  },
+  // --- Accessories ---
+  {
+    id: 19,
+    name: "TackleVault Pro Tackle Box",
+    category: "accessories",
+    price: 44.99,
+    rating: 4.8,
+    reviews: 312,
+    icon: "\uD83E\uDDF0",
+    description: "3-tray tackle box with waterproof seal and corrosion-resistant latches. Organize your entire arsenal.",
+    features: ["3 trays", "Waterproof seal", "Corrosion resistant", "Adjustable dividers"],
+    weight: "3.5 lbs"
+  },
+  {
+    id: 20,
+    name: "WildLine Braided Line 300yd",
+    category: "accessories",
+    price: 19.99,
+    rating: 4.7,
+    reviews: 445,
+    icon: "\uD83E\uDDF5",
+    description: "8-strand braided fishing line with zero stretch. Maximum sensitivity and incredible strength.",
+    features: ["8-strand braid", "Zero stretch", "300yd spool", "Abrasion resistant"],
+    sizes: ["10lb", "20lb", "30lb", "50lb", "65lb"],
+    weight: "300 yards"
+  }
+];
+
+// Make products available globally
+window.PRODUCTS = PRODUCTS;

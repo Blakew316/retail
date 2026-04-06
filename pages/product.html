@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Product - Wild Cast Outfitters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/product.css">
+</head>
+<body class="page-transition">
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <p>FREE SHIPPING ON ORDERS OVER $75 &mdash; USE CODE: <strong>WILDCAST</strong></p>
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-container">
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">&#9978;</span>
+        <div class="logo-text">
+          <span class="logo-name">WILD CAST</span>
+          <span class="logo-tagline">OUTFITTERS</span>
+        </div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li class="has-dropdown">
+          <a href="catalog.html">Shop All</a>
+          <div class="dropdown-menu">
+            <a href="catalog.html?category=lures">Fishing Lures</a>
+            <a href="catalog.html?category=reels">Reels</a>
+            <a href="catalog.html?category=rods">Rods & Combos</a>
+            <a href="catalog.html?category=hunting">Hunting Gear</a>
+          </div>
+        </li>
+        <li><a href="catalog.html?category=lures">Lures</a></li>
+        <li><a href="catalog.html?category=reels">Reels</a></li>
+        <li><a href="catalog.html?category=hunting">Hunting</a></li>
+        <li><a href="about.html">Our Story</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-icon search-toggle" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button class="nav-icon cart-toggle" id="cartToggle" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <input type="text" placeholder="Search for lures, reels, hunting gear..." class="search-input" id="searchInput">
+      <button class="search-close" id="searchClose">&times;</button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="catalog.html">Shop All</a></li>
+      <li><a href="catalog.html?category=lures">Fishing Lures</a></li>
+      <li><a href="catalog.html?category=reels">Reels</a></li>
+      <li><a href="catalog.html?category=hunting">Hunting Gear</a></li>
+      <li><a href="about.html">Our Story</a></li>
+    </ul>
+  </div>
+
+  <!-- Product Detail -->
+  <section class="product-detail-section">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <a href="catalog.html">Shop</a>
+        <span>/</span>
+        <span id="breadcrumbProduct">Product</span>
+      </div>
+
+      <div class="product-detail" id="productDetail">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Products -->
+  <section class="section related-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">YOU MIGHT ALSO LIKE</span>
+        <h2 class="section-title">Related Products</h2>
+      </div>
+      <div class="products-grid stagger-grid" id="relatedProducts"></div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo footer-logo">
+            <span class="logo-icon">&#9978;</span>
+            <div class="logo-text">
+              <span class="logo-name">WILD CAST</span>
+              <span class="logo-tagline">OUTFITTERS</span>
+            </div>
+          </a>
+          <p>Premium outdoor gear for anglers and hunters who demand the best.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="catalog.html?category=lures">Fishing Lures</a></li>
+            <li><a href="catalog.html?category=reels">Reels</a></li>
+            <li><a href="catalog.html?category=hunting">Hunting Gear</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping & Returns</a></li>
+            <li><a href="#">Track Order</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Wild Cast Outfitters. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="cart-close" id="cartClose">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <p class="cart-note">Shipping & taxes calculated at checkout</p>
+      <button class="btn btn-primary btn-full">CHECKOUT</button>
+    </div>
+  </div>
+
+  <script src="../js/products.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/product-detail.js"></script>
+</body>
+</html>

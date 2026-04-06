@@ -1,0 +1,302 @@
+/* =========================================
+   WILD CAST OUTFITTERS - Product Detail
+   ========================================= */
+
+.product-detail-section {
+  padding: 100px 0 40px;
+}
+
+.product-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  margin-top: 24px;
+}
+
+/* --- Product Image --- */
+.pd-image-wrap {
+  position: relative;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pd-image-placeholder {
+  font-size: 120px;
+  opacity: 0.8;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.pd-image-wrap:hover .pd-image-placeholder {
+  transform: scale(1.1);
+}
+
+.pd-badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-family: var(--font-display);
+  font-size: 12px;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* --- Product Info --- */
+.pd-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.pd-category {
+  font-family: var(--font-accent);
+  font-size: 14px;
+  letter-spacing: 4px;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.pd-title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.15;
+  margin-bottom: 12px;
+}
+
+.pd-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.pd-stars {
+  color: var(--color-primary);
+  font-size: 16px;
+}
+
+.pd-review-count {
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+
+.pd-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.pd-price {
+  font-family: var(--font-display);
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.pd-compare-price {
+  font-size: 20px;
+  color: var(--color-text-dim);
+  text-decoration: line-through;
+}
+
+.pd-save {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--color-danger);
+  background: rgba(196, 94, 94, 0.1);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+.pd-description {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+  margin-bottom: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Options */
+.pd-option-group {
+  margin-bottom: 20px;
+}
+
+.pd-option-label {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.pd-option-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pd-option-btn {
+  padding: 8px 18px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all var(--transition);
+  font-family: var(--font-body);
+}
+
+.pd-option-btn:hover,
+.pd-option-btn.active {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: rgba(200, 164, 94, 0.05);
+}
+
+/* Quantity & Add to Cart */
+.pd-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  margin-bottom: 28px;
+}
+
+.pd-qty {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.pd-qty button {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: var(--color-text-muted);
+  transition: all var(--transition);
+  cursor: pointer;
+}
+
+.pd-qty button:hover {
+  background: var(--color-surface);
+  color: var(--color-primary);
+}
+
+.pd-qty span {
+  width: 44px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 16px;
+}
+
+.pd-add-btn {
+  flex: 1;
+}
+
+/* Features */
+.pd-features {
+  border-top: 1px solid var(--color-border);
+  padding-top: 24px;
+}
+
+.pd-features h4 {
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.pd-features ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.pd-features li {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pd-features li::before {
+  content: '\2713';
+  color: var(--color-accent);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* Shipping Info */
+.pd-shipping {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--color-border);
+}
+
+.pd-shipping-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+
+.pd-shipping-item svg {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+/* --- Related Products --- */
+.related-section .products-grid {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .product-detail {
+    gap: 40px;
+  }
+  .related-section .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .product-detail {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .pd-image-wrap {
+    max-height: 400px;
+  }
+
+  .pd-features ul {
+    grid-template-columns: 1fr;
+  }
+
+  .related-section .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

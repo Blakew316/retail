@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop All - Wild Cast Outfitters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <link rel="stylesheet" href="../css/catalog.css">
+</head>
+<body class="page-transition">
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <p>FREE SHIPPING ON ORDERS OVER $75 &mdash; USE CODE: <strong>WILDCAST</strong></p>
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-container">
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">&#9978;</span>
+        <div class="logo-text">
+          <span class="logo-name">WILD CAST</span>
+          <span class="logo-tagline">OUTFITTERS</span>
+        </div>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="../index.html">Home</a></li>
+        <li class="has-dropdown">
+          <a href="catalog.html" class="active">Shop All</a>
+          <div class="dropdown-menu">
+            <a href="catalog.html?category=lures">Fishing Lures</a>
+            <a href="catalog.html?category=reels">Reels</a>
+            <a href="catalog.html?category=rods">Rods & Combos</a>
+            <a href="catalog.html?category=hunting">Hunting Gear</a>
+            <a href="catalog.html?category=apparel">Apparel</a>
+            <a href="catalog.html?category=accessories">Accessories</a>
+          </div>
+        </li>
+        <li><a href="catalog.html?category=lures">Lures</a></li>
+        <li><a href="catalog.html?category=reels">Reels</a></li>
+        <li><a href="catalog.html?category=hunting">Hunting</a></li>
+        <li><a href="about.html">Our Story</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-icon search-toggle" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <a href="account.html" class="nav-icon" aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </a>
+        <button class="nav-icon cart-toggle" id="cartToggle" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <input type="text" placeholder="Search for lures, reels, hunting gear..." class="search-input" id="searchInput">
+      <button class="search-close" id="searchClose">&times;</button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="catalog.html">Shop All</a></li>
+      <li><a href="catalog.html?category=lures">Fishing Lures</a></li>
+      <li><a href="catalog.html?category=reels">Reels</a></li>
+      <li><a href="catalog.html?category=hunting">Hunting Gear</a></li>
+      <li><a href="about.html">Our Story</a></li>
+    </ul>
+  </div>
+
+  <!-- Catalog Header -->
+  <section class="catalog-hero">
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <span id="breadcrumbCurrent">Shop All</span>
+      </div>
+      <h1 class="catalog-title" id="catalogTitle">SHOP ALL GEAR</h1>
+      <p class="catalog-desc" id="catalogDesc">Browse our complete collection of premium fishing and hunting gear.</p>
+    </div>
+  </section>
+
+  <!-- Catalog Body -->
+  <section class="catalog-body">
+    <div class="container">
+      <div class="catalog-layout">
+        <!-- Sidebar Filters -->
+        <aside class="catalog-sidebar" id="catalogSidebar">
+          <div class="sidebar-header">
+            <h3>Filters</h3>
+            <button class="clear-filters" id="clearFilters">Clear All</button>
+          </div>
+
+          <div class="filter-group">
+            <h4 class="filter-title">Category</h4>
+            <div class="filter-options">
+              <label class="filter-checkbox">
+                <input type="checkbox" name="category" value="lures"> Fishing Lures
+                <span class="filter-count" data-count="lures"></span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="category" value="reels"> Reels
+                <span class="filter-count" data-count="reels"></span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="category" value="rods"> Rods & Combos
+                <span class="filter-count" data-count="rods"></span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="category" value="hunting"> Hunting Gear
+                <span class="filter-count" data-count="hunting"></span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="category" value="accessories"> Accessories
+                <span class="filter-count" data-count="accessories"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4 class="filter-title">Price Range</h4>
+            <div class="filter-options">
+              <label class="filter-checkbox">
+                <input type="checkbox" name="price" value="0-25"> Under $25
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="price" value="25-75"> $25 - $75
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="price" value="75-150"> $75 - $150
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="price" value="150-300"> $150 - $300
+              </label>
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <h4 class="filter-title">Rating</h4>
+            <div class="filter-options">
+              <label class="filter-checkbox">
+                <input type="checkbox" name="rating" value="4.5"> 4.5+ Stars
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="rating" value="4"> 4+ Stars
+              </label>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Product Grid -->
+        <main class="catalog-main">
+          <div class="catalog-toolbar">
+            <div class="toolbar-left">
+              <button class="mobile-filter-btn" id="mobileFilterBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/></svg>
+                Filters
+              </button>
+              <span class="results-count" id="resultsCount">0 products</span>
+            </div>
+            <div class="toolbar-right">
+              <select class="sort-select" id="sortSelect">
+                <option value="featured">Featured</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="rating">Highest Rated</option>
+                <option value="name">Name A-Z</option>
+              </select>
+              <div class="view-toggle">
+                <button class="view-btn active" data-view="grid">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                </button>
+                <button class="view-btn" data-view="list">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="products-grid stagger-grid" id="catalogProducts"></div>
+
+          <div class="catalog-empty" id="catalogEmpty" style="display:none;">
+            <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <h3>No products found</h3>
+            <p>Try adjusting your filters or search terms.</p>
+            <button class="btn btn-primary" onclick="clearAllFilters()">CLEAR FILTERS</button>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo footer-logo">
+            <span class="logo-icon">&#9978;</span>
+            <div class="logo-text">
+              <span class="logo-name">WILD CAST</span>
+              <span class="logo-tagline">OUTFITTERS</span>
+            </div>
+          </a>
+          <p>Premium outdoor gear for anglers and hunters who demand the best.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19.1c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48"/></svg></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="catalog.html?category=lures">Fishing Lures</a></li>
+            <li><a href="catalog.html?category=reels">Reels</a></li>
+            <li><a href="catalog.html?category=rods">Rods & Combos</a></li>
+            <li><a href="catalog.html?category=hunting">Hunting Gear</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="#">Pro Staff</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Shipping & Returns</a></li>
+            <li><a href="#">Track Order</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Wild Cast Outfitters. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="cart-close" id="cartClose">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <p class="cart-note">Shipping & taxes calculated at checkout</p>
+      <button class="btn btn-primary btn-full">CHECKOUT</button>
+    </div>
+  </div>
+
+  <script src="../js/products.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/catalog.js"></script>
+</body>
+</html>

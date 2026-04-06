@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story - Wild Cast Outfitters</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/animations.css">
+  <style>
+    .about-hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(160deg, #050a07, #1a3322, #0d2818);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(ellipse at 30% 40%, rgba(200, 164, 94, 0.08), transparent 60%);
+    }
+
+    .about-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 800px;
+      padding: 0 24px;
+    }
+
+    .about-hero-content h1 {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 6vw, 72px);
+      font-weight: 700;
+      letter-spacing: 6px;
+      margin-bottom: 16px;
+    }
+
+    .about-hero-content h1 em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--color-primary);
+    }
+
+    .about-hero-content p {
+      font-size: 18px;
+      color: var(--color-text-muted);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    .about-content {
+      padding: 80px 0;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .about-grid:nth-child(even) {
+      direction: rtl;
+    }
+
+    .about-grid:nth-child(even) > * {
+      direction: ltr;
+    }
+
+    .about-image {
+      background: linear-gradient(135deg, var(--color-surface), var(--color-bg-alt));
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      aspect-ratio: 4/3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      opacity: 0.7;
+    }
+
+    .about-text h2 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+
+    .about-text h2 em {
+      font-family: var(--font-serif);
+      font-style: italic;
+      color: var(--color-primary);
+    }
+
+    .about-text p {
+      font-size: 16px;
+      color: var(--color-text-muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .values-section {
+      padding: 80px 0;
+      background: var(--color-bg-alt);
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .value-card {
+      text-align: center;
+      padding: 40px 24px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition);
+    }
+
+    .value-card:hover {
+      border-color: var(--color-primary);
+      transform: translateY(-4px);
+    }
+
+    .value-icon {
+      font-size: 40px;
+      margin-bottom: 16px;
+    }
+
+    .value-card h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .value-card p {
+      font-size: 14px;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    .cta-banner {
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .cta-banner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 700;
+      letter-spacing: 3px;
+      margin-bottom: 16px;
+    }
+
+    .cta-banner p {
+      font-size: 16px;
+      color: var(--color-text-muted);
+      margin-bottom: 32px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .about-grid:nth-child(even) {
+        direction: ltr;
+      }
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body class="page-transition">
+  <!-- Announcement Bar -->
+  <div class="announcement-bar">
+    <p>FREE SHIPPING ON ORDERS OVER $75 &mdash; USE CODE: <strong>WILDCAST</strong></p>
+  </div>
+
+  <!-- Navigation -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-container">
+      <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="../index.html" class="logo">
+        <span class="logo-icon">&#9978;</span>
+        <div class="logo-text">
+          <span class="logo-name">WILD CAST</span>
+          <span class="logo-tagline">OUTFITTERS</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="catalog.html">Shop All</a></li>
+        <li><a href="catalog.html?category=lures">Lures</a></li>
+        <li><a href="catalog.html?category=reels">Reels</a></li>
+        <li><a href="catalog.html?category=hunting">Hunting</a></li>
+        <li><a href="about.html" class="active">Our Story</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-icon search-toggle" aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button class="nav-icon cart-toggle" id="cartToggle" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Search Overlay -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-container">
+      <input type="text" placeholder="Search for lures, reels, hunting gear..." class="search-input" id="searchInput">
+      <button class="search-close" id="searchClose">&times;</button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul class="mobile-nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="catalog.html">Shop All</a></li>
+      <li><a href="catalog.html?category=lures">Fishing Lures</a></li>
+      <li><a href="catalog.html?category=reels">Reels</a></li>
+      <li><a href="catalog.html?category=hunting">Hunting Gear</a></li>
+      <li><a href="about.html">Our Story</a></li>
+    </ul>
+  </div>
+
+  <!-- About Hero -->
+  <section class="about-hero">
+    <div class="about-hero-content fade-in-up">
+      <span class="section-tag">OUR STORY</span>
+      <h1>BUILT FOR THE <em>Wild</em></h1>
+      <p>We're anglers, hunters, and outdoor enthusiasts who believe great gear makes great memories.</p>
+    </div>
+  </section>
+
+  <!-- About Content -->
+  <div class="about-content">
+    <div class="container">
+      <div class="about-grid reveal">
+        <div class="about-image">\uD83C\uDFA3</div>
+        <div class="about-text">
+          <h2>FROM PASSION TO <em>Purpose</em></h2>
+          <p>Wild Cast Outfitters was born on the banks of the Ozarks, where early morning fog meets crystal-clear water. What started as two friends sharing their favorite lures at a local bait shop has grown into a trusted destination for anglers and hunters nationwide.</p>
+          <p>We test every product we sell. If it doesn't perform on the water or in the field, it doesn't make our shelves. Period.</p>
+        </div>
+      </div>
+
+      <div class="about-grid reveal">
+        <div class="about-image">\uD83E\uDD8C</div>
+        <div class="about-text">
+          <h2>GEAR THAT <em>Performs</em></h2>
+          <p>We partner with the best manufacturers in the industry and rigorously field-test every product. From tournament-winning crankbaits to precision optics for the deer stand, our catalog represents the best of the best.</p>
+          <p>Our team includes professional anglers, seasoned hunters, and gear obsessives who live and breathe the outdoor lifestyle every single day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Values -->
+  <section class="values-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">WHAT WE STAND FOR</span>
+        <h2 class="section-title">Our Values</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <div class="value-icon">\uD83C\uDFAF</div>
+          <h3>QUALITY FIRST</h3>
+          <p>Every product is hand-selected and field-tested by our team. We only carry gear we'd use ourselves.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-icon">\uD83C\uDF0D</div>
+          <h3>CONSERVATION</h3>
+          <p>We donate 1% of every sale to wildlife conservation and habitat restoration programs across North America.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-icon">\uD83E\uDD1D</div>
+          <h3>COMMUNITY</h3>
+          <p>We sponsor local fishing tournaments, youth outdoor programs, and veteran outdoor therapy initiatives.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-banner">
+    <div class="container reveal">
+      <h2>READY TO GEAR UP?</h2>
+      <p>Browse our complete collection and find the gear that matches your adventure.</p>
+      <a href="catalog.html" class="btn btn-primary btn-lg">SHOP THE COLLECTION</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo footer-logo">
+            <span class="logo-icon">&#9978;</span>
+            <div class="logo-text">
+              <span class="logo-name">WILD CAST</span>
+              <span class="logo-tagline">OUTFITTERS</span>
+            </div>
+          </a>
+          <p>Premium outdoor gear for anglers and hunters who demand the best.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Shop</h4>
+          <ul>
+            <li><a href="catalog.html?category=lures">Fishing Lures</a></li>
+            <li><a href="catalog.html?category=reels">Reels</a></li>
+            <li><a href="catalog.html?category=hunting">Hunting Gear</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Wild Cast Outfitters. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Drawer -->
+  <div class="cart-overlay" id="cartOverlay"></div>
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Cart</h3>
+      <button class="cart-close" id="cartClose">&times;</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">$0.00</span>
+      </div>
+      <p class="cart-note">Shipping & taxes calculated at checkout</p>
+      <button class="btn btn-primary btn-full">CHECKOUT</button>
+    </div>
+  </div>
+
+  <script src="../js/products.js"></script>
+  <script src="../js/cart.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>
