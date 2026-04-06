@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reports | Wild Cast Outfitters Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <button class="mobile-sidebar-toggle" id="sidebarToggle"><span class="material-icons-outlined">menu</span></button>
+      <a href="index.html" class="top-logo"><span class="top-logo-icon">&#9978;</span><span class="top-logo-text">wild cast</span></a>
+    </div>
+    <div class="top-bar-right">
+      <span class="business-name">WILD CAST OUTFITTERS</span>
+      <div class="top-bar-actions">
+        <button class="top-icon-btn"><span class="material-icons-outlined">sync</span></button>
+        <button class="top-icon-btn"><span class="material-icons-outlined">help_outline</span></button>
+        <button class="top-icon-btn"><span class="material-icons-outlined">settings</span></button>
+        <button class="top-icon-btn avatar-btn"><span class="material-icons-outlined">account_circle</span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <button class="new-sale-btn"><span class="material-icons-outlined">add</span> New sale</button>
+        <nav class="sidebar-nav">
+          <a href="index.html" class="nav-item"><span class="material-icons-outlined">home</span> Home</a>
+          <a href="sales.html" class="nav-item"><span class="material-icons-outlined">receipt_long</span> Sales activity</a>
+          <a href="reports.html" class="nav-item active"><span class="material-icons-outlined">bar_chart</span> Reports</a>
+          <a href="finances.html" class="nav-item"><span class="material-icons-outlined">account_balance</span> Finances</a>
+          <a href="items.html" class="nav-item"><span class="material-icons-outlined">sell</span> Items</a>
+          <a href="employees.html" class="nav-item"><span class="material-icons-outlined">badge</span> Employees</a>
+          <a href="customers.html" class="nav-item"><span class="material-icons-outlined">people</span> Customers</a>
+          <div class="nav-divider"></div>
+          <a href="#" class="nav-item"><span class="material-icons-outlined">shopping_cart</span> Shopping tools</a>
+          <a href="#" class="nav-item"><span class="material-icons-outlined">apps</span> Apps</a>
+        </nav>
+        <div class="sidebar-footer"><p>&copy; 2026 Wild Cast Outfitters</p></div>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div class="page-header-left">
+          <h1 class="page-title">Reports</h1>
+          <p class="page-subtitle">Analyze sales performance and trends</p>
+        </div>
+        <div class="page-header-right">
+          <div class="date-picker" id="datePicker">
+            <span class="material-icons-outlined">calendar_today</span>
+            <span class="date-picker-label" id="datePickerLabel">This month</span>
+            <span class="material-icons-outlined" style="font-size:18px">expand_more</span>
+            <div class="date-picker-dropdown" id="dateDropdown">
+              <button class="date-option" data-range="today">Today</button>
+              <button class="date-option" data-range="week">This week</button>
+              <button class="date-option active" data-range="month">This month</button>
+              <button class="date-option" data-range="quarter">This quarter</button>
+              <button class="date-option" data-range="year">This year</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Report Categories Grid -->
+      <div class="stat-summary">
+        <div class="stat-card">
+          <div class="stat-card-label">Total revenue</div>
+          <div class="stat-card-value">$48,392.40</div>
+          <div class="stat-card-change up"><span class="material-icons-outlined">north</span> 12.4% vs last month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Total orders</div>
+          <div class="stat-card-value">2,134</div>
+          <div class="stat-card-change up"><span class="material-icons-outlined">north</span> 8.7%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Avg. order value</div>
+          <div class="stat-card-value">$22.68</div>
+          <div class="stat-card-change up"><span class="material-icons-outlined">north</span> 3.4%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Items sold</div>
+          <div class="stat-card-value">6,847</div>
+          <div class="stat-card-change up"><span class="material-icons-outlined">north</span> 11.2%</div>
+        </div>
+      </div>
+
+      <!-- Revenue Trend -->
+      <div class="dashboard-card">
+        <div class="card-header-row">
+          <h2 class="card-section-title" style="margin-bottom:0">Revenue trend</h2>
+          <div class="toolbar-actions">
+            <button class="btn-outline" style="padding:6px 12px;font-size:12px;">Daily</button>
+            <button class="btn-outline" style="padding:6px 12px;font-size:12px;background:var(--nav-active);color:var(--blue);border-color:var(--blue);">Weekly</button>
+            <button class="btn-outline" style="padding:6px 12px;font-size:12px;">Monthly</button>
+          </div>
+        </div>
+        <div class="chart-placeholder" style="height:280px;">
+          <div class="bar" style="height:42%"></div>
+          <div class="bar" style="height:58%;animation-delay:0.06s"></div>
+          <div class="bar" style="height:51%;animation-delay:0.12s"></div>
+          <div class="bar" style="height:67%;animation-delay:0.18s"></div>
+          <div class="bar" style="height:74%;animation-delay:0.24s"></div>
+          <div class="bar" style="height:62%;animation-delay:0.3s"></div>
+          <div class="bar" style="height:83%;animation-delay:0.36s"></div>
+          <div class="bar" style="height:71%;animation-delay:0.42s"></div>
+          <div class="bar" style="height:89%;animation-delay:0.48s"></div>
+          <div class="bar" style="height:76%;animation-delay:0.54s"></div>
+          <div class="bar" style="height:94%;animation-delay:0.6s"></div>
+          <div class="bar" style="height:82%;animation-delay:0.66s"></div>
+          <div class="bar" style="height:68%;animation-delay:0.72s"></div>
+          <div class="bar" style="height:91%;animation-delay:0.78s"></div>
+          <div class="bar" style="height:85%;animation-delay:0.84s"></div>
+          <div class="bar" style="height:78%;animation-delay:0.9s"></div>
+        </div>
+      </div>
+
+      <!-- Sales by Category & Top Items Side by Side -->
+      <div class="detail-grid">
+        <div class="dashboard-card">
+          <h2 class="card-section-title">Sales by category</h2>
+          <table class="data-table">
+            <thead>
+              <tr><th>Category</th><th>Items sold</th><th>Revenue</th><th>% of total</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Lures</strong></td><td>2,847</td><td>$14,235.60</td><td>29.4%</td></tr>
+              <tr><td><strong>Reels</strong></td><td>892</td><td>$12,480.30</td><td>25.8%</td></tr>
+              <tr><td><strong>Hunting</strong></td><td>1,234</td><td>$11,890.45</td><td>24.6%</td></tr>
+              <tr><td><strong>Rods</strong></td><td>567</td><td>$5,120.70</td><td>10.6%</td></tr>
+              <tr><td><strong>Accessories</strong></td><td>1,307</td><td>$4,665.35</td><td>9.6%</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="dashboard-card">
+          <h2 class="card-section-title">Sales by channel</h2>
+          <table class="data-table">
+            <thead>
+              <tr><th>Channel</th><th>Orders</th><th>Revenue</th><th>% of total</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>In-store</strong></td><td>1,423</td><td>$31,455.60</td><td>65.0%</td></tr>
+              <tr><td><strong>Online</strong></td><td>589</td><td>$13,082.40</td><td>27.0%</td></tr>
+              <tr><td><strong>Phone</strong></td><td>122</td><td>$3,854.40</td><td>8.0%</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Hourly Sales Heatmap -->
+      <div class="dashboard-card">
+        <h2 class="card-section-title">Peak sales hours</h2>
+        <table class="data-table">
+          <thead>
+            <tr><th>Time</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>8-10 AM</strong></td><td>$120</td><td>$95</td><td>$110</td><td>$130</td><td>$145</td><td>$280</td><td>$310</td></tr>
+            <tr><td><strong>10-12 PM</strong></td><td>$340</td><td>$290</td><td>$310</td><td>$355</td><td>$420</td><td>$580</td><td>$620</td></tr>
+            <tr><td><strong>12-2 PM</strong></td><td>$480</td><td>$420</td><td>$460</td><td>$510</td><td>$590</td><td>$780</td><td>$840</td></tr>
+            <tr><td><strong>2-4 PM</strong></td><td>$390</td><td>$350</td><td>$370</td><td>$410</td><td>$520</td><td>$710</td><td>$680</td></tr>
+            <tr><td><strong>4-6 PM</strong></td><td>$520</td><td>$480</td><td>$510</td><td>$560</td><td>$680</td><td>$890</td><td>$750</td></tr>
+            <tr><td><strong>6-8 PM</strong></td><td>$310</td><td>$270</td><td>$290</td><td>$340</td><td>$450</td><td>$540</td><td>$420</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

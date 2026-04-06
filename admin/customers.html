@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customers | Wild Cast Outfitters Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <button class="mobile-sidebar-toggle" id="sidebarToggle"><span class="material-icons-outlined">menu</span></button>
+      <a href="index.html" class="top-logo"><span class="top-logo-icon">&#9978;</span><span class="top-logo-text">wild cast</span></a>
+    </div>
+    <div class="top-bar-right">
+      <span class="business-name">WILD CAST OUTFITTERS</span>
+      <div class="top-bar-actions">
+        <button class="top-icon-btn" title="Sync"><span class="material-icons-outlined">sync</span></button>
+        <button class="top-icon-btn" title="Help"><span class="material-icons-outlined">help_outline</span></button>
+        <button class="top-icon-btn" title="Settings"><span class="material-icons-outlined">settings</span></button>
+        <button class="top-icon-btn avatar-btn"><span class="material-icons-outlined">account_circle</span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <button class="new-sale-btn"><span class="material-icons-outlined">add</span> New sale</button>
+        <nav class="sidebar-nav">
+          <a href="index.html" class="nav-item"><span class="material-icons-outlined">home</span> Home</a>
+          <a href="sales.html" class="nav-item"><span class="material-icons-outlined">receipt_long</span> Sales activity</a>
+          <a href="reports.html" class="nav-item"><span class="material-icons-outlined">bar_chart</span> Reports</a>
+          <a href="finances.html" class="nav-item"><span class="material-icons-outlined">account_balance</span> Finances</a>
+          <a href="items.html" class="nav-item"><span class="material-icons-outlined">sell</span> Items</a>
+          <a href="employees.html" class="nav-item"><span class="material-icons-outlined">badge</span> Employees</a>
+          <a href="customers.html" class="nav-item active"><span class="material-icons-outlined">people</span> Customers</a>
+          <div class="nav-divider"></div>
+          <a href="#" class="nav-item"><span class="material-icons-outlined">shopping_cart</span> Shopping tools</a>
+          <a href="#" class="nav-item"><span class="material-icons-outlined">apps</span> Apps</a>
+        </nav>
+        <div class="sidebar-footer"><p>&copy; 2026 Wild Cast Outfitters</p></div>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div class="page-header-left">
+          <h1 class="page-title">Customers</h1>
+          <p class="page-subtitle">View and manage your customer relationships</p>
+        </div>
+      </div>
+
+      <!-- Summary Stats -->
+      <div class="stat-summary">
+        <div class="stat-card">
+          <div class="stat-card-label">Total customers</div>
+          <div class="stat-card-value">1,247</div>
+          <div class="stat-card-change up"><span class="material-icons-outlined">north</span> 8.3% this month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">New this month</div>
+          <div class="stat-card-value">96</div>
+          <div class="stat-card-change up"><span class="material-icons-outlined">north</span> 12.1%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Repeat customers</div>
+          <div class="stat-card-value">68%</div>
+          <div class="stat-card-change up"><span class="material-icons-outlined">north</span> 3.2%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Avg. lifetime value</div>
+          <div class="stat-card-value">$284.50</div>
+          <div class="stat-card-change up"><span class="material-icons-outlined">north</span> 5.7%</div>
+        </div>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="search-bar">
+          <span class="material-icons-outlined">search</span>
+          <input type="text" placeholder="Search customers..." id="customerSearch">
+        </div>
+        <div class="toolbar-actions">
+          <button class="btn-outline"><span class="material-icons-outlined">download</span> Export</button>
+          <button class="btn-primary" id="addCustomerBtn"><span class="material-icons-outlined">person_add</span> Add customer</button>
+        </div>
+      </div>
+
+      <!-- Customers Table -->
+      <div class="dashboard-card" style="padding:0;">
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th><input type="checkbox"></th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Orders</th>
+                <th>Total spent</th>
+                <th>Last visit</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="customersBody"></tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Customer Modal -->
+  <div class="modal-overlay" id="customerModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Add customer</h3>
+        <button class="modal-close" onclick="closeModal('customerModal')"><span class="material-icons-outlined">close</span></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">First name</label>
+            <input class="form-input" type="text" placeholder="First name">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Last name</label>
+            <input class="form-input" type="text" placeholder="Last name">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="email@example.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Phone</label>
+          <input class="form-input" type="tel" placeholder="(555) 555-5555">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Notes</label>
+          <input class="form-input" type="text" placeholder="Add a note about this customer">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-outline" onclick="closeModal('customerModal')">Cancel</button>
+        <button class="btn-primary">Save customer</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+  <script>
+    const CUSTOMERS = [
+      { name: "Jake Morrison", email: "jake.morrison@email.com", phone: "(555) 234-8901", orders: 23, spent: 1247.80, lastVisit: "Today" },
+      { name: "Sarah Reynolds", email: "s.reynolds@email.com", phone: "(555) 345-6789", orders: 17, spent: 2890.45, lastVisit: "Today" },
+      { name: "Derek Thompson", email: "dthompson@email.com", phone: "(555) 456-1234", orders: 31, spent: 987.20, lastVisit: "Yesterday" },
+      { name: "Mike Chen", email: "mike.chen@email.com", phone: "(555) 567-8901", orders: 8, spent: 456.92, lastVisit: "Yesterday" },
+      { name: "Lisa Hartwell", email: "l.hartwell@email.com", phone: "(555) 678-2345", orders: 42, spent: 4521.30, lastVisit: "Apr 4" },
+      { name: "Tom Bradley", email: "tom.b@email.com", phone: "(555) 789-3456", orders: 12, spent: 834.50, lastVisit: "Apr 3" },
+      { name: "Amanda Foster", email: "a.foster@email.com", phone: "(555) 890-4567", orders: 6, spent: 312.88, lastVisit: "Apr 3" },
+      { name: "Ryan Watts", email: "ryan.watts@email.com", phone: "(555) 901-5678", orders: 19, spent: 1567.40, lastVisit: "Apr 2" },
+      { name: "Kara Simmons", email: "k.simmons@email.com", phone: "(555) 012-6789", orders: 28, spent: 2145.60, lastVisit: "Apr 1" },
+      { name: "Ben Ortiz", email: "b.ortiz@email.com", phone: "(555) 123-7890", orders: 5, spent: 289.95, lastVisit: "Mar 30" },
+      { name: "Jessica Park", email: "j.park@email.com", phone: "(555) 234-5678", orders: 15, spent: 1120.75, lastVisit: "Mar 28" },
+      { name: "Carlos Ruiz", email: "c.ruiz@email.com", phone: "(555) 345-9012", orders: 9, spent: 567.30, lastVisit: "Mar 27" }
+    ];
+
+    function renderCustomers(filter = '') {
+      const tbody = document.getElementById('customersBody');
+      const filtered = CUSTOMERS.filter(c =>
+        c.name.toLowerCase().includes(filter.toLowerCase()) ||
+        c.email.toLowerCase().includes(filter.toLowerCase())
+      );
+      const initials = (name) => name.split(' ').map(n => n[0]).join('');
+
+      tbody.innerHTML = filtered.map(c => `
+        <tr>
+          <td><input type="checkbox"></td>
+          <td class="item-name-cell">
+            <div style="width:32px;height:32px;border-radius:50%;background:#e8f0fe;color:#1a73e8;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;flex-shrink:0;">${initials(c.name)}</div>
+            <strong>${c.name}</strong>
+          </td>
+          <td>${c.email}</td>
+          <td>${c.phone}</td>
+          <td>${c.orders}</td>
+          <td>$${c.spent.toFixed(2)}</td>
+          <td class="text-muted">${c.lastVisit}</td>
+          <td>
+            <button class="top-icon-btn" style="width:32px;height:32px;">
+              <span class="material-icons-outlined" style="font-size:18px;">more_vert</span>
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    document.getElementById('customerSearch')?.addEventListener('input', (e) => renderCustomers(e.target.value));
+    document.getElementById('addCustomerBtn')?.addEventListener('click', () => {
+      document.getElementById('customerModal').classList.add('open');
+    });
+
+    function closeModal(id) { document.getElementById(id)?.classList.remove('open'); }
+    window.closeModal = closeModal;
+
+    renderCustomers();
+  </script>
+</body>
+</html>

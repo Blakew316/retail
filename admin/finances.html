@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finances | Wild Cast Outfitters Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <button class="mobile-sidebar-toggle" id="sidebarToggle"><span class="material-icons-outlined">menu</span></button>
+      <a href="index.html" class="top-logo"><span class="top-logo-icon">&#9978;</span><span class="top-logo-text">wild cast</span></a>
+    </div>
+    <div class="top-bar-right">
+      <span class="business-name">WILD CAST OUTFITTERS</span>
+      <div class="top-bar-actions">
+        <button class="top-icon-btn"><span class="material-icons-outlined">sync</span></button>
+        <button class="top-icon-btn"><span class="material-icons-outlined">help_outline</span></button>
+        <button class="top-icon-btn"><span class="material-icons-outlined">settings</span></button>
+        <button class="top-icon-btn avatar-btn"><span class="material-icons-outlined">account_circle</span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <button class="new-sale-btn"><span class="material-icons-outlined">add</span> New sale</button>
+        <nav class="sidebar-nav">
+          <a href="index.html" class="nav-item"><span class="material-icons-outlined">home</span> Home</a>
+          <a href="sales.html" class="nav-item"><span class="material-icons-outlined">receipt_long</span> Sales activity</a>
+          <a href="reports.html" class="nav-item"><span class="material-icons-outlined">bar_chart</span> Reports</a>
+          <a href="finances.html" class="nav-item active"><span class="material-icons-outlined">account_balance</span> Finances</a>
+          <a href="items.html" class="nav-item"><span class="material-icons-outlined">sell</span> Items</a>
+          <a href="employees.html" class="nav-item"><span class="material-icons-outlined">badge</span> Employees</a>
+          <a href="customers.html" class="nav-item"><span class="material-icons-outlined">people</span> Customers</a>
+          <div class="nav-divider"></div>
+          <a href="#" class="nav-item"><span class="material-icons-outlined">shopping_cart</span> Shopping tools</a>
+          <a href="#" class="nav-item"><span class="material-icons-outlined">apps</span> Apps</a>
+        </nav>
+        <div class="sidebar-footer"><p>&copy; 2026 Wild Cast Outfitters</p></div>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div class="page-header-left">
+          <h1 class="page-title">Finances</h1>
+          <p class="page-subtitle">Track your revenue, deposits, and financial health</p>
+        </div>
+        <div class="page-header-right">
+          <div class="date-picker" id="datePicker">
+            <span class="material-icons-outlined">calendar_today</span>
+            <span class="date-picker-label" id="datePickerLabel">This month</span>
+            <span class="material-icons-outlined" style="font-size:18px">expand_more</span>
+            <div class="date-picker-dropdown" id="dateDropdown">
+              <button class="date-option" data-range="today">Today</button>
+              <button class="date-option" data-range="week">This week</button>
+              <button class="date-option active" data-range="month">This month</button>
+              <button class="date-option" data-range="quarter">This quarter</button>
+              <button class="date-option" data-range="year">This year</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab-btn active">Overview</button>
+        <button class="tab-btn">Deposits</button>
+        <button class="tab-btn">Batches</button>
+        <button class="tab-btn">Taxes</button>
+      </div>
+
+      <!-- Financial Summary -->
+      <div class="stat-summary">
+        <div class="stat-card">
+          <div class="stat-card-label">Gross revenue</div>
+          <div class="stat-card-value">$48,392.40</div>
+          <div class="stat-card-change up"><span class="material-icons-outlined">north</span> 12.4%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Net revenue</div>
+          <div class="stat-card-value">$42,847.15</div>
+          <div class="stat-card-change up"><span class="material-icons-outlined">north</span> 9.8%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Total refunds</div>
+          <div class="stat-card-value">$1,245.80</div>
+          <div class="stat-card-change down"><span class="material-icons-outlined">south</span> 3.2%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card-label">Processing fees</div>
+          <div class="stat-card-value">$1,411.28</div>
+        </div>
+      </div>
+
+      <!-- Revenue Breakdown -->
+      <div class="dashboard-card">
+        <h2 class="card-section-title">Revenue breakdown</h2>
+        <div class="chart-placeholder" style="height:260px;">
+          <div class="bar" style="height:45%"></div>
+          <div class="bar" style="height:52%;animation-delay:0.05s"></div>
+          <div class="bar" style="height:48%;animation-delay:0.1s"></div>
+          <div class="bar" style="height:61%;animation-delay:0.15s"></div>
+          <div class="bar" style="height:55%;animation-delay:0.2s"></div>
+          <div class="bar" style="height:73%;animation-delay:0.25s"></div>
+          <div class="bar" style="height:68%;animation-delay:0.3s"></div>
+          <div class="bar" style="height:82%;animation-delay:0.35s"></div>
+          <div class="bar" style="height:76%;animation-delay:0.4s"></div>
+          <div class="bar" style="height:91%;animation-delay:0.45s"></div>
+          <div class="bar" style="height:85%;animation-delay:0.5s"></div>
+          <div class="bar" style="height:72%;animation-delay:0.55s"></div>
+          <div class="bar" style="height:65%;animation-delay:0.6s"></div>
+          <div class="bar" style="height:58%;animation-delay:0.65s"></div>
+          <div class="bar" style="height:88%;animation-delay:0.7s"></div>
+          <div class="bar" style="height:95%;animation-delay:0.75s"></div>
+          <div class="bar" style="height:78%;animation-delay:0.8s"></div>
+          <div class="bar" style="height:69%;animation-delay:0.85s"></div>
+          <div class="bar" style="height:83%;animation-delay:0.9s"></div>
+          <div class="bar" style="height:74%;animation-delay:0.95s"></div>
+        </div>
+      </div>
+
+      <!-- Deposit & Payment Tables Side by Side -->
+      <div class="detail-grid">
+        <!-- Recent Deposits -->
+        <div class="dashboard-card">
+          <div class="card-header-row">
+            <h2 class="card-section-title" style="margin-bottom:0">Recent deposits</h2>
+            <a href="#" class="link-teal">View all</a>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr><th>Date</th><th>Amount</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Apr 5</td><td>$3,136.40</td><td><span class="status-badge status-pending">Processing</span></td></tr>
+              <tr><td>Apr 4</td><td>$2,891.22</td><td><span class="status-badge status-paid">Deposited</span></td></tr>
+              <tr><td>Apr 3</td><td>$4,215.80</td><td><span class="status-badge status-paid">Deposited</span></td></tr>
+              <tr><td>Apr 2</td><td>$3,478.55</td><td><span class="status-badge status-paid">Deposited</span></td></tr>
+              <tr><td>Apr 1</td><td>$2,567.90</td><td><span class="status-badge status-paid">Deposited</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Payment Methods -->
+        <div class="dashboard-card">
+          <h2 class="card-section-title">Payment methods</h2>
+          <table class="data-table">
+            <thead>
+              <tr><th>Method</th><th>Transactions</th><th>Total</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Visa</td><td>847</td><td>$18,420.50</td></tr>
+              <tr><td>Mastercard</td><td>512</td><td>$12,340.80</td></tr>
+              <tr><td>Cash</td><td>389</td><td>$7,890.25</td></tr>
+              <tr><td>Debit</td><td>267</td><td>$5,430.60</td></tr>
+              <tr><td>PayPal / Apple Pay</td><td>198</td><td>$4,310.25</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Tax Summary -->
+      <div class="dashboard-card">
+        <h2 class="card-section-title">Tax summary</h2>
+        <div class="detail-grid">
+          <div>
+            <div class="detail-row"><span class="detail-label">Taxable sales</span><span class="detail-value">$42,847.15</span></div>
+            <div class="detail-row"><span class="detail-label">Tax collected (8.25%)</span><span class="detail-value">$3,534.89</span></div>
+            <div class="detail-row"><span class="detail-label">Tax-exempt sales</span><span class="detail-value">$5,545.25</span></div>
+          </div>
+          <div>
+            <div class="detail-row"><span class="detail-label">State tax (6.25%)</span><span class="detail-value">$2,677.95</span></div>
+            <div class="detail-row"><span class="detail-label">County tax (1.00%)</span><span class="detail-value">$428.47</span></div>
+            <div class="detail-row"><span class="detail-label">City tax (1.00%)</span><span class="detail-value">$428.47</span></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

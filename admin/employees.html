@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employees | Wild Cast Outfitters Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <button class="mobile-sidebar-toggle" id="sidebarToggle"><span class="material-icons-outlined">menu</span></button>
+      <a href="index.html" class="top-logo"><span class="top-logo-icon">&#9978;</span><span class="top-logo-text">wild cast</span></a>
+    </div>
+    <div class="top-bar-right">
+      <span class="business-name">WILD CAST OUTFITTERS</span>
+      <div class="top-bar-actions">
+        <button class="top-icon-btn"><span class="material-icons-outlined">sync</span></button>
+        <button class="top-icon-btn"><span class="material-icons-outlined">help_outline</span></button>
+        <button class="top-icon-btn"><span class="material-icons-outlined">settings</span></button>
+        <button class="top-icon-btn avatar-btn"><span class="material-icons-outlined">account_circle</span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <button class="new-sale-btn"><span class="material-icons-outlined">add</span> New sale</button>
+        <nav class="sidebar-nav">
+          <a href="index.html" class="nav-item"><span class="material-icons-outlined">home</span> Home</a>
+          <a href="sales.html" class="nav-item"><span class="material-icons-outlined">receipt_long</span> Sales activity</a>
+          <a href="reports.html" class="nav-item"><span class="material-icons-outlined">bar_chart</span> Reports</a>
+          <a href="finances.html" class="nav-item"><span class="material-icons-outlined">account_balance</span> Finances</a>
+          <a href="items.html" class="nav-item"><span class="material-icons-outlined">sell</span> Items</a>
+          <a href="employees.html" class="nav-item active"><span class="material-icons-outlined">badge</span> Employees</a>
+          <a href="customers.html" class="nav-item"><span class="material-icons-outlined">people</span> Customers</a>
+          <div class="nav-divider"></div>
+          <a href="#" class="nav-item"><span class="material-icons-outlined">shopping_cart</span> Shopping tools</a>
+          <a href="#" class="nav-item"><span class="material-icons-outlined">apps</span> Apps</a>
+        </nav>
+        <div class="sidebar-footer"><p>&copy; 2026 Wild Cast Outfitters</p></div>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div class="page-header-left">
+          <h1 class="page-title">Employees</h1>
+          <p class="page-subtitle">Manage team members, roles, and permissions</p>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab-btn active">All employees</button>
+        <button class="tab-btn">Roles</button>
+        <button class="tab-btn">Shifts</button>
+        <button class="tab-btn">Time clock</button>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="search-bar">
+          <span class="material-icons-outlined">search</span>
+          <input type="text" placeholder="Search employees...">
+        </div>
+        <div class="toolbar-actions">
+          <button class="btn-primary" id="addEmployeeBtn"><span class="material-icons-outlined">person_add</span> Add employee</button>
+        </div>
+      </div>
+
+      <!-- Employees Table -->
+      <div class="dashboard-card" style="padding:0;">
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Sales today</th>
+                <th>Status</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="item-name-cell">
+                  <div style="width:36px;height:36px;border-radius:50%;background:#e8f5e9;color:#2e7d32;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0;">JW</div>
+                  <div>
+                    <strong>Justin Woodruff</strong>
+                    <div class="text-muted" style="font-size:12px">Owner</div>
+                  </div>
+                </td>
+                <td><span class="status-badge" style="background:#e8f5e9;color:#2e7d32;">Admin</span></td>
+                <td>justin@wildcasto.com</td>
+                <td>(555) 123-4567</td>
+                <td><strong>$2,140.50</strong></td>
+                <td><span class="status-badge status-paid">Clocked in</span></td>
+                <td><button class="top-icon-btn" style="width:32px;height:32px;"><span class="material-icons-outlined" style="font-size:18px;">more_vert</span></button></td>
+              </tr>
+              <tr>
+                <td class="item-name-cell">
+                  <div style="width:36px;height:36px;border-radius:50%;background:#e3f2fd;color:#1565c0;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0;">AK</div>
+                  <div>
+                    <strong>Amy Kowalski</strong>
+                    <div class="text-muted" style="font-size:12px">Assistant Manager</div>
+                  </div>
+                </td>
+                <td><span class="status-badge" style="background:#e3f2fd;color:#1565c0;">Manager</span></td>
+                <td>amy.k@wildcasto.com</td>
+                <td>(555) 234-5678</td>
+                <td><strong>$1,640.27</strong></td>
+                <td><span class="status-badge status-paid">Clocked in</span></td>
+                <td><button class="top-icon-btn" style="width:32px;height:32px;"><span class="material-icons-outlined" style="font-size:18px;">more_vert</span></button></td>
+              </tr>
+              <tr>
+                <td class="item-name-cell">
+                  <div style="width:36px;height:36px;border-radius:50%;background:#fff3e0;color:#e65100;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0;">MR</div>
+                  <div>
+                    <strong>Marcus Rivera</strong>
+                    <div class="text-muted" style="font-size:12px">Sales Associate</div>
+                  </div>
+                </td>
+                <td><span class="status-badge" style="background:#fff3e0;color:#e65100;">Employee</span></td>
+                <td>marcus@wildcasto.com</td>
+                <td>(555) 345-6789</td>
+                <td>$0.00</td>
+                <td><span class="status-badge" style="background:#f5f5f5;color:#9aa0a6;">Off today</span></td>
+                <td><button class="top-icon-btn" style="width:32px;height:32px;"><span class="material-icons-outlined" style="font-size:18px;">more_vert</span></button></td>
+              </tr>
+              <tr>
+                <td class="item-name-cell">
+                  <div style="width:36px;height:36px;border-radius:50%;background:#fce4ec;color:#c62828;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0;">TN</div>
+                  <div>
+                    <strong>Taylor Nguyen</strong>
+                    <div class="text-muted" style="font-size:12px">Sales Associate</div>
+                  </div>
+                </td>
+                <td><span class="status-badge" style="background:#fff3e0;color:#e65100;">Employee</span></td>
+                <td>taylor.n@wildcasto.com</td>
+                <td>(555) 456-7890</td>
+                <td>$0.00</td>
+                <td><span class="status-badge" style="background:#f5f5f5;color:#9aa0a6;">Off today</span></td>
+                <td><button class="top-icon-btn" style="width:32px;height:32px;"><span class="material-icons-outlined" style="font-size:18px;">more_vert</span></button></td>
+              </tr>
+              <tr>
+                <td class="item-name-cell">
+                  <div style="width:36px;height:36px;border-radius:50%;background:#e8eaf6;color:#283593;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;flex-shrink:0;">CB</div>
+                  <div>
+                    <strong>Chris Baker</strong>
+                    <div class="text-muted" style="font-size:12px">Seasonal</div>
+                  </div>
+                </td>
+                <td><span class="status-badge" style="background:#f3e5f5;color:#6a1b9a;">Seasonal</span></td>
+                <td>chris.b@wildcasto.com</td>
+                <td>(555) 567-8901</td>
+                <td>$0.00</td>
+                <td><span class="status-badge" style="background:#f5f5f5;color:#9aa0a6;">Off today</span></td>
+                <td><button class="top-icon-btn" style="width:32px;height:32px;"><span class="material-icons-outlined" style="font-size:18px;">more_vert</span></button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Employee Performance -->
+      <div class="dashboard-card">
+        <h2 class="card-section-title">Performance this month</h2>
+        <div class="detail-grid">
+          <div>
+            <div class="detail-row"><span class="detail-label">Justin Woodruff</span><span class="detail-value">$22,480.30 (847 orders)</span></div>
+            <div class="detail-row"><span class="detail-label">Amy Kowalski</span><span class="detail-value">$18,240.55 (712 orders)</span></div>
+            <div class="detail-row"><span class="detail-label">Marcus Rivera</span><span class="detail-value">$5,120.70 (389 orders)</span></div>
+          </div>
+          <div>
+            <div class="detail-row"><span class="detail-label">Taylor Nguyen</span><span class="detail-value">$2,150.85 (142 orders)</span></div>
+            <div class="detail-row"><span class="detail-label">Chris Baker</span><span class="detail-value">$400.00 (44 orders)</span></div>
+            <div class="detail-row"><span class="detail-label">Total team sales</span><span class="detail-value" style="color:var(--teal);font-weight:700;">$48,392.40</span></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Employee Modal -->
+  <div class="modal-overlay" id="employeeModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3>Add employee</h3>
+        <button class="modal-close" onclick="closeModal('employeeModal')"><span class="material-icons-outlined">close</span></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-row">
+          <div class="form-group"><label class="form-label">First name</label><input class="form-input" type="text" placeholder="First name"></div>
+          <div class="form-group"><label class="form-label">Last name</label><input class="form-input" type="text" placeholder="Last name"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="employee@wildcasto.com"></div>
+        <div class="form-group"><label class="form-label">Phone</label><input class="form-input" type="tel" placeholder="(555) 555-5555"></div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Role</label>
+            <select class="form-select">
+              <option value="">Select role</option>
+              <option>Admin</option>
+              <option>Manager</option>
+              <option>Employee</option>
+              <option>Seasonal</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">PIN (for POS)</label>
+            <input class="form-input" type="text" placeholder="4-digit PIN">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-outline" onclick="closeModal('employeeModal')">Cancel</button>
+        <button class="btn-primary">Save employee</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+    document.getElementById('addEmployeeBtn')?.addEventListener('click', () => {
+      document.getElementById('employeeModal').classList.add('open');
+    });
+    function closeModal(id) { document.getElementById(id)?.classList.remove('open'); }
+    window.closeModal = closeModal;
+  </script>
+</body>
+</html>

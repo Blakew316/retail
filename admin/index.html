@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wild Cast Outfitters | Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <!-- Top Header Bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <button class="mobile-sidebar-toggle" id="sidebarToggle">
+        <span class="material-icons-outlined">menu</span>
+      </button>
+      <a href="index.html" class="top-logo">
+        <span class="top-logo-icon">&#9978;</span>
+        <span class="top-logo-text">wild cast</span>
+      </a>
+    </div>
+    <div class="top-bar-right">
+      <span class="business-name">WILD CAST OUTFITTERS</span>
+      <div class="top-bar-actions">
+        <button class="top-icon-btn" title="Sync">
+          <span class="material-icons-outlined">sync</span>
+        </button>
+        <button class="top-icon-btn" title="Help">
+          <span class="material-icons-outlined">help_outline</span>
+        </button>
+        <button class="top-icon-btn" title="Settings">
+          <span class="material-icons-outlined">settings</span>
+        </button>
+        <button class="top-icon-btn avatar-btn" title="Account">
+          <span class="material-icons-outlined">account_circle</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <button class="new-sale-btn">
+          <span class="material-icons-outlined">add</span>
+          New sale
+        </button>
+
+        <nav class="sidebar-nav">
+          <a href="index.html" class="nav-item active" data-page="home">
+            <span class="material-icons-outlined">home</span>
+            Home
+          </a>
+          <a href="sales.html" class="nav-item" data-page="sales">
+            <span class="material-icons-outlined">receipt_long</span>
+            Sales activity
+          </a>
+          <a href="reports.html" class="nav-item" data-page="reports">
+            <span class="material-icons-outlined">bar_chart</span>
+            Reports
+          </a>
+          <a href="finances.html" class="nav-item" data-page="finances">
+            <span class="material-icons-outlined">account_balance</span>
+            Finances
+          </a>
+          <a href="items.html" class="nav-item" data-page="items">
+            <span class="material-icons-outlined">sell</span>
+            Items
+          </a>
+          <a href="employees.html" class="nav-item" data-page="employees">
+            <span class="material-icons-outlined">badge</span>
+            Employees
+          </a>
+          <a href="customers.html" class="nav-item" data-page="customers">
+            <span class="material-icons-outlined">people</span>
+            Customers
+          </a>
+
+          <div class="nav-divider"></div>
+
+          <a href="#" class="nav-item" data-page="shopping">
+            <span class="material-icons-outlined">shopping_cart</span>
+            Shopping tools
+          </a>
+          <a href="#" class="nav-item" data-page="apps">
+            <span class="material-icons-outlined">apps</span>
+            Apps
+          </a>
+        </nav>
+
+        <div class="sidebar-footer">
+          <p>&copy; 2026 Wild Cast Outfitters</p>
+          <div class="sidebar-footer-links">
+            <a href="#">Terms <span class="material-icons-outlined" style="font-size:12px">open_in_new</span></a>
+            <a href="#">Privacy Policy <span class="material-icons-outlined" style="font-size:12px">open_in_new</span></a>
+            <a href="#">Accessibility <span class="material-icons-outlined" style="font-size:12px">open_in_new</span></a>
+          </div>
+          <a href="#" class="sidebar-footer-lang">English (United States)</a>
+          <a href="#" class="sidebar-footer-suggest">Product Suggestions</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Sidebar overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <div class="page-header-left">
+          <h1 class="page-title">Home</h1>
+          <p class="page-subtitle">Here's an overview of how your business is doing</p>
+        </div>
+        <div class="page-header-right">
+          <div class="date-picker" id="datePicker">
+            <span class="material-icons-outlined">calendar_today</span>
+            <span class="date-picker-label" id="datePickerLabel">Today</span>
+            <span class="material-icons-outlined" style="font-size:18px">expand_more</span>
+            <div class="date-picker-dropdown" id="dateDropdown">
+              <button class="date-option active" data-range="today">Today</button>
+              <button class="date-option" data-range="yesterday">Yesterday</button>
+              <button class="date-option" data-range="week">This week</button>
+              <button class="date-option" data-range="month">This month</button>
+              <button class="date-option" data-range="quarter">This quarter</button>
+              <button class="date-option" data-range="year">This year</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sales Card -->
+      <div class="dashboard-card">
+        <h2 class="card-section-title">Sales</h2>
+
+        <div class="sales-overview">
+          <div class="sales-metrics">
+            <div class="metric-block">
+              <a href="reports.html" class="metric-label-link">Net sales</a>
+              <div class="metric-value">$3,780.77</div>
+              <div class="metric-change negative">
+                <span class="material-icons-outlined">south</span>
+                11.20% <span class="change-context">compared to last Sunday</span>
+              </div>
+            </div>
+
+            <div class="metric-block">
+              <a href="sales.html" class="metric-label-link">Paid orders</a>
+              <div class="metric-value">171</div>
+              <div class="metric-change negative">
+                <span class="material-icons-outlined">south</span>
+                15.76%
+              </div>
+            </div>
+
+            <div class="metric-block">
+              <a href="reports.html" class="metric-label-link">Average order size</a>
+              <div class="metric-value">$22.11</div>
+              <div class="metric-change positive">
+                <span class="material-icons-outlined">north</span>
+                5.42%
+              </div>
+            </div>
+          </div>
+
+          <div class="sales-chart-area">
+            <div class="chart-legend">
+              <span class="legend-item">
+                <span class="legend-dot today"></span> Today
+              </span>
+              <span class="legend-item">
+                <span class="legend-dot comparison"></span> Last Sunday
+              </span>
+            </div>
+            <div class="chart-container">
+              <canvas id="salesChart"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer-row">
+          <span>$3,136.40 in an <a href="#" class="link-teal">open batch</a></span>
+        </div>
+      </div>
+
+      <!-- Inventory Snapshot -->
+      <div class="dashboard-card">
+        <h2 class="card-section-title">Inventory snapshot</h2>
+        <div class="inventory-grid">
+          <div class="inv-stat-card">
+            <div class="inv-stat-icon" style="background:#e8f5e9;color:#2e7d32;">
+              <span class="material-icons-outlined">inventory_2</span>
+            </div>
+            <div class="inv-stat-info">
+              <span class="inv-stat-value">2,487</span>
+              <span class="inv-stat-label">Total items</span>
+            </div>
+          </div>
+          <div class="inv-stat-card">
+            <div class="inv-stat-icon" style="background:#fff3e0;color:#e65100;">
+              <span class="material-icons-outlined">warning_amber</span>
+            </div>
+            <div class="inv-stat-info">
+              <span class="inv-stat-value">23</span>
+              <span class="inv-stat-label">Low stock alerts</span>
+            </div>
+          </div>
+          <div class="inv-stat-card">
+            <div class="inv-stat-icon" style="background:#e3f2fd;color:#1565c0;">
+              <span class="material-icons-outlined">local_shipping</span>
+            </div>
+            <div class="inv-stat-info">
+              <span class="inv-stat-value">14</span>
+              <span class="inv-stat-label">Incoming orders</span>
+            </div>
+          </div>
+          <div class="inv-stat-card">
+            <div class="inv-stat-icon" style="background:#fce4ec;color:#c62828;">
+              <span class="material-icons-outlined">remove_shopping_cart</span>
+            </div>
+            <div class="inv-stat-info">
+              <span class="inv-stat-value">8</span>
+              <span class="inv-stat-label">Out of stock</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Recent Orders -->
+      <div class="dashboard-card">
+        <div class="card-header-row">
+          <h2 class="card-section-title" style="margin-bottom:0">Recent orders</h2>
+          <a href="sales.html" class="link-teal">View all</a>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Order #</th>
+                <th>Customer</th>
+                <th>Items</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="order-id">#WC-1847</td>
+                <td>Jake Morrison</td>
+                <td>3</td>
+                <td>$47.97</td>
+                <td><span class="status-badge status-paid">Paid</span></td>
+                <td class="text-muted">7:42 PM</td>
+              </tr>
+              <tr>
+                <td class="order-id">#WC-1846</td>
+                <td>Sarah Reynolds</td>
+                <td>1</td>
+                <td>$249.99</td>
+                <td><span class="status-badge status-paid">Paid</span></td>
+                <td class="text-muted">7:18 PM</td>
+              </tr>
+              <tr>
+                <td class="order-id">#WC-1845</td>
+                <td>Derek Thompson</td>
+                <td>5</td>
+                <td>$89.95</td>
+                <td><span class="status-badge status-paid">Paid</span></td>
+                <td class="text-muted">6:55 PM</td>
+              </tr>
+              <tr>
+                <td class="order-id">#WC-1844</td>
+                <td>Online Order</td>
+                <td>2</td>
+                <td>$169.98</td>
+                <td><span class="status-badge status-pending">Pending</span></td>
+                <td class="text-muted">6:30 PM</td>
+              </tr>
+              <tr>
+                <td class="order-id">#WC-1843</td>
+                <td>Mike Chen</td>
+                <td>4</td>
+                <td>$62.96</td>
+                <td><span class="status-badge status-refund">Refunded</span></td>
+                <td class="text-muted">5:48 PM</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Top Selling Items -->
+      <div class="dashboard-card">
+        <div class="card-header-row">
+          <h2 class="card-section-title" style="margin-bottom:0">Top selling items</h2>
+          <a href="items.html" class="link-teal">View all</a>
+        </div>
+        <div class="table-responsive">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Category</th>
+                <th>Sold</th>
+                <th>Revenue</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="item-name-cell">
+                  <span class="item-icon">&#127907;</span>
+                  Thunderstrike Crankbait
+                </td>
+                <td>Lures</td>
+                <td>47</td>
+                <td>$610.53</td>
+              </tr>
+              <tr>
+                <td class="item-name-cell">
+                  <span class="item-icon">&#9881;&#65039;</span>
+                  Apex Pro 3000 Spinning Reel
+                </td>
+                <td>Reels</td>
+                <td>28</td>
+                <td>$4,199.72</td>
+              </tr>
+              <tr>
+                <td class="item-name-cell">
+                  <span class="item-icon">&#128059;</span>
+                  Ghost Minnow Jerkbait
+                </td>
+                <td>Lures</td>
+                <td>34</td>
+                <td>$509.66</td>
+              </tr>
+              <tr>
+                <td class="item-name-cell">
+                  <span class="item-icon">&#128248;</span>
+                  Trail Master Game Camera
+                </td>
+                <td>Hunting</td>
+                <td>19</td>
+                <td>$2,279.81</td>
+              </tr>
+              <tr>
+                <td class="item-name-cell">
+                  <span class="item-icon">&#129413;</span>
+                  Frog King Topwater
+                </td>
+                <td>Lures</td>
+                <td>41</td>
+                <td>$491.59</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

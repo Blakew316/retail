@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Items | Wild Cast Outfitters Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+  <!-- Top Header Bar -->
+  <header class="top-bar">
+    <div class="top-bar-left">
+      <button class="mobile-sidebar-toggle" id="sidebarToggle">
+        <span class="material-icons-outlined">menu</span>
+      </button>
+      <a href="index.html" class="top-logo">
+        <span class="top-logo-icon">&#9978;</span>
+        <span class="top-logo-text">wild cast</span>
+      </a>
+    </div>
+    <div class="top-bar-right">
+      <span class="business-name">WILD CAST OUTFITTERS</span>
+      <div class="top-bar-actions">
+        <button class="top-icon-btn" title="Sync"><span class="material-icons-outlined">sync</span></button>
+        <button class="top-icon-btn" title="Help"><span class="material-icons-outlined">help_outline</span></button>
+        <button class="top-icon-btn" title="Settings"><span class="material-icons-outlined">settings</span></button>
+        <button class="top-icon-btn avatar-btn" title="Account"><span class="material-icons-outlined">account_circle</span></button>
+      </div>
+    </div>
+  </header>
+
+  <div class="dashboard-layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-inner">
+        <button class="new-sale-btn"><span class="material-icons-outlined">add</span> New sale</button>
+        <nav class="sidebar-nav">
+          <a href="index.html" class="nav-item"><span class="material-icons-outlined">home</span> Home</a>
+          <a href="sales.html" class="nav-item"><span class="material-icons-outlined">receipt_long</span> Sales activity</a>
+          <a href="reports.html" class="nav-item"><span class="material-icons-outlined">bar_chart</span> Reports</a>
+          <a href="finances.html" class="nav-item"><span class="material-icons-outlined">account_balance</span> Finances</a>
+          <a href="items.html" class="nav-item active"><span class="material-icons-outlined">sell</span> Items</a>
+          <a href="employees.html" class="nav-item"><span class="material-icons-outlined">badge</span> Employees</a>
+          <a href="customers.html" class="nav-item"><span class="material-icons-outlined">people</span> Customers</a>
+          <div class="nav-divider"></div>
+          <a href="#" class="nav-item"><span class="material-icons-outlined">shopping_cart</span> Shopping tools</a>
+          <a href="#" class="nav-item"><span class="material-icons-outlined">apps</span> Apps</a>
+        </nav>
+        <div class="sidebar-footer">
+          <p>&copy; 2026 Wild Cast Outfitters</p>
+        </div>
+      </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="main-content">
+      <div class="page-header">
+        <div class="page-header-left">
+          <h1 class="page-title">Items</h1>
+          <p class="page-subtitle">Manage your inventory, prices, and stock levels</p>
+        </div>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="all">All items</button>
+        <button class="tab-btn" data-tab="categories">Categories</button>
+        <button class="tab-btn" data-tab="modifiers">Modifier groups</button>
+        <button class="tab-btn" data-tab="labels">Labels</button>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="toolbar">
+        <div class="search-bar">
+          <span class="material-icons-outlined">search</span>
+          <input type="text" placeholder="Search items..." id="itemSearch">
+        </div>
+        <div class="toolbar-actions">
+          <button class="btn-outline" id="exportBtn">
+            <span class="material-icons-outlined">download</span> Export
+          </button>
+          <button class="btn-outline" id="importBtn">
+            <span class="material-icons-outlined">upload</span> Import
+          </button>
+          <button class="btn-primary" id="addItemBtn">
+            <span class="material-icons-outlined">add</span> Add item
+          </button>
+        </div>
+      </div>
+
+      <!-- Items Table -->
+      <div class="dashboard-card" style="padding:0;">
+        <div class="table-responsive">
+          <table class="data-table" id="itemsTable">
+            <thead>
+              <tr>
+                <th><input type="checkbox" id="selectAll"></th>
+                <th>Item name</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Status</th>
+                <th>SKU</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="itemsBody">
+              <!-- populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="table-footer">
+        <span class="text-muted" id="itemCount">Showing 20 items</span>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add/Edit Item Modal -->
+  <div class="modal-overlay" id="itemModal">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle">Add item</h3>
+        <button class="modal-close" onclick="closeModal('itemModal')">
+          <span class="material-icons-outlined">close</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label class="form-label">Item name</label>
+          <input class="form-input" type="text" id="itemName" placeholder="e.g. Thunderstrike Crankbait">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Price</label>
+            <input class="form-input" type="text" id="itemPrice" placeholder="$0.00">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Cost</label>
+            <input class="form-input" type="text" id="itemCost" placeholder="$0.00">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select class="form-select" id="itemCategory">
+              <option value="">Select category</option>
+              <option value="Lures">Lures</option>
+              <option value="Reels">Reels</option>
+              <option value="Rods">Rods</option>
+              <option value="Hunting">Hunting</option>
+              <option value="Apparel">Apparel</option>
+              <option value="Accessories">Accessories</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">SKU</label>
+            <input class="form-input" type="text" id="itemSKU" placeholder="e.g. WC-LUR-001">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Stock quantity</label>
+          <input class="form-input" type="number" id="itemStock" placeholder="0">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-outline" onclick="closeModal('itemModal')">Cancel</button>
+        <button class="btn-primary" id="saveItemBtn">Save item</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+  <script>
+    const ITEMS_DATA = [
+      { name: "Thunderstrike Crankbait", category: "Lures", price: 12.99, stock: 142, status: "active", sku: "WC-LUR-001" },
+      { name: "Ghost Minnow Jerkbait", category: "Lures", price: 14.99, stock: 89, status: "active", sku: "WC-LUR-002" },
+      { name: "Buzztail Spinnerbait", category: "Lures", price: 9.99, stock: 203, status: "active", sku: "WC-LUR-003" },
+      { name: "Wicked Worm 12pk", category: "Lures", price: 7.99, stock: 347, status: "active", sku: "WC-LUR-004" },
+      { name: "Frog King Topwater", category: "Lures", price: 11.99, stock: 167, status: "active", sku: "WC-LUR-005" },
+      { name: "Deep Diver Swimbait", category: "Lures", price: 18.99, stock: 4, status: "low", sku: "WC-LUR-006" },
+      { name: "Apex Pro 3000 Spinning Reel", category: "Reels", price: 149.99, stock: 34, status: "active", sku: "WC-REL-001" },
+      { name: "Titan Baitcaster Elite", category: "Reels", price: 199.99, stock: 22, status: "active", sku: "WC-REL-002" },
+      { name: "StreamCraft Fly Reel", category: "Reels", price: 129.99, stock: 18, status: "active", sku: "WC-REL-003" },
+      { name: "Coastal 5000 Surf Reel", category: "Reels", price: 89.99, stock: 0, status: "out", sku: "WC-REL-004" },
+      { name: "Precision 10x42 Binoculars", category: "Hunting", price: 249.99, stock: 28, status: "active", sku: "WC-HNT-001" },
+      { name: "Ghost Caller Pro - Deer", category: "Hunting", price: 79.99, stock: 45, status: "active", sku: "WC-HNT-002" },
+      { name: "Timber Blind Ground Blind", category: "Hunting", price: 189.99, stock: 3, status: "low", sku: "WC-HNT-003" },
+      { name: "TrueShot Rangefinder", category: "Hunting", price: 169.99, stock: 31, status: "active", sku: "WC-HNT-004" },
+      { name: "CamoTec Insulated Jacket", category: "Apparel", price: 139.99, stock: 67, status: "active", sku: "WC-APP-001" },
+      { name: "Trail Master Game Camera", category: "Hunting", price: 119.99, stock: 53, status: "active", sku: "WC-HNT-005" },
+      { name: "ProCast 7' MH Rod", category: "Rods", price: 79.99, stock: 41, status: "active", sku: "WC-ROD-001" },
+      { name: "UltraLite Spinning Rod", category: "Rods", price: 59.99, stock: 0, status: "out", sku: "WC-ROD-002" },
+      { name: "TackleVault Pro Tackle Box", category: "Accessories", price: 44.99, stock: 88, status: "active", sku: "WC-ACC-001" },
+      { name: "WildLine Braided Line 300yd", category: "Accessories", price: 19.99, stock: 234, status: "active", sku: "WC-ACC-002" }
+    ];
+
+    function renderItems(filter = '') {
+      const tbody = document.getElementById('itemsBody');
+      const filtered = ITEMS_DATA.filter(item =>
+        item.name.toLowerCase().includes(filter.toLowerCase()) ||
+        item.category.toLowerCase().includes(filter.toLowerCase()) ||
+        item.sku.toLowerCase().includes(filter.toLowerCase())
+      );
+
+      tbody.innerHTML = filtered.map(item => {
+        let statusClass = 'status-paid';
+        let statusLabel = 'Active';
+        if (item.status === 'low') { statusClass = 'status-pending'; statusLabel = 'Low stock'; }
+        if (item.status === 'out') { statusClass = 'status-refund'; statusLabel = 'Out of stock'; }
+
+        return `<tr>
+          <td><input type="checkbox"></td>
+          <td class="item-name-cell"><strong>${item.name}</strong></td>
+          <td>${item.category}</td>
+          <td>$${item.price.toFixed(2)}</td>
+          <td>${item.stock}</td>
+          <td><span class="status-badge ${statusClass}">${statusLabel}</span></td>
+          <td class="text-muted">${item.sku}</td>
+          <td>
+            <button class="top-icon-btn" title="Edit" style="width:32px;height:32px;">
+              <span class="material-icons-outlined" style="font-size:18px;">edit</span>
+            </button>
+          </td>
+        </tr>`;
+      }).join('');
+
+      document.getElementById('itemCount').textContent = `Showing ${filtered.length} items`;
+    }
+
+    document.getElementById('itemSearch')?.addEventListener('input', (e) => {
+      renderItems(e.target.value);
+    });
+
+    document.getElementById('addItemBtn')?.addEventListener('click', () => {
+      document.getElementById('itemModal').classList.add('open');
+    });
+
+    function closeModal(id) {
+      document.getElementById(id)?.classList.remove('open');
+    }
+    window.closeModal = closeModal;
+
+    document.getElementById('selectAll')?.addEventListener('change', (e) => {
+      document.querySelectorAll('#itemsBody input[type="checkbox"]').forEach(cb => {
+        cb.checked = e.target.checked;
+      });
+    });
+
+    // Tab switching
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    renderItems();
+  </script>
+</body>
+</html>
