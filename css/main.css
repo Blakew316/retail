@@ -265,6 +265,16 @@ ul { list-style: none; }
   background: var(--color-surface);
 }
 
+a.admin-link {
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+a.admin-link:hover {
+  color: var(--color-primary-light);
+  background: rgba(200, 164, 94, 0.15);
+}
+
 .cart-count {
   position: absolute;
   top: 2px;
